@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Bạn có yêu tôi không?</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      background-color: #fff0f5;
+      margin-top: 100px;
+      overflow: hidden;
+    }
+
+    h1 {
+      color: #e91e63;
+    }
+
+    .buttons {
+      margin-top: 30px;
+    }
+
+    button {
+      font-size: 24px;
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #yesBtn {
+      background-color: #4caf50;
+      color: white;
+    }
+
+    #noBtn {
+      background-color: #f44336;
+      color: white;
+    }
+
+    #messageBox {
+      margin-top: 30px;
+      font-size: 20px;
+      color: #555;
+      min-height: 30px;
+    }
+
+    #heartGif {
+      margin-top: 20px;
+      display: none;
+      width: 150px;
+    }
+
+    #loveMessage {
+      margin-top: 30px;
+      font-size: 24px;
+      color: #e91e63;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Bạn có yêu tôi không? 🥺</h1>
+
+  <div class="buttons">
+    <button id="yesBtn">Có ❤️</button>
+    <button id="noBtn">Không 😢</button>
+  </div>
+
+  <div id="messageBox"></div>
+  <img id="heartGif" src="https://media.giphy.com/media/l3V0o7Q1U7a3RRLWM/giphy.gif" alt="Heart Break">
+  <div id="loveMessage"></div>
+
+  <script>
+    const yesBtn = document.getElementById('yesBtn');
+    const noBtn = document.getElementById('noBtn');
+    const messageBox = document.getElementById('messageBox');
+    const heartGif = document.getElementById('heartGif');
+    const loveMessage = document.getElementById('loveMessage');
+
+    let yesSize = 24;
+
+    const sadMessages = [
+      "Tớ sẽ buồn lắm đó 😢",
+      "Cậu chắc chắn chứ?",
+      "Không yêu tớ thật à?",
+      "Tớ sẽ khóc mất 😭",
+      "Cậu suy nghĩ lại được không?",
+      "Tớ không tin đâu 🥺",
+      "Làm ơn nói là có đi...",
+      "Tớ yêu cậu mà 💔"
+    ];
+
+    yesBtn.addEventListener('click', () => {
+      loveMessage.textContent = "Tớ cũng yêu cậu lắm đó 🥰";
+    });
+
+    noBtn.addEventListener('click', () => {
+      yesSize += 5;
+      yesBtn.style.fontSize = yesSize + "px";
+
+      const msg = sadMessages[Math.floor(Math.random() * sadMessages.length)];
+      messageBox.textContent = msg;
+
+      loveMessage.textContent = "";
+
+      heartGif.style.display = "block";
+      setTimeout(() => {
+        heartGif.style.display = "none";
+      }, 1500);
+    });
+  </script>
+
+</body>
+</html>
+initial commit
